@@ -1,4 +1,74 @@
+/* ============================================================
+   0. YOUTUBE MUSIC PLAYER (Arka Plan Şarkısı)
+   ============================================================ */
+let ytPlayer;
+let isMusicPlaying = false;
+
+window.onYouTubeIframeAPIReady = function() {
+  ytPlayer = new YT.Player('yt-player-container', {
+    height: '10',
+    width: '10',
+    videoId: 'hxaey0AUofQ', // Kullanıcının seçtiği şarkı
+    playerVars: {
+      'autoplay': 0,
+      'controls': 0,
+      'loop': 1,
+      'playlist': 'hxaey0AUofQ',
+      'playsinline': 1
+    }
+  });
+};
+
 document.addEventListener('DOMContentLoaded', () => {
+  const musicBtn = document.getElementById('music-btn');
+  const iconSoundOn = document.getElementById('icon-sound-on');
+  const iconSoundOff = document.getElementById('icon-sound-off');
+
+  function startMusic() {
+    if (ytPlayer && typeof ytPlayer.playVideo === 'function') {
+      ytPlayer.playVideo();
+      isMusicPlaying = true;
+      updateMusicBtnState();
+    } else {
+      setTimeout(() => {
+        if (ytPlayer && typeof ytPlayer.playVideo === 'function') {
+          ytPlayer.playVideo();
+          isMusicPlaying = true;
+          updateMusicBtnState();
+        }
+      }, 1000);
+    }
+  }
+
+  function updateMusicBtnState() {
+    if (!musicBtn) return;
+    musicBtn.style.display = 'flex';
+    if (isMusicPlaying) {
+      musicBtn.classList.add('music-playing');
+      if (iconSoundOn) iconSoundOn.style.display = 'block';
+      if (iconSoundOff) iconSoundOff.style.display = 'none';
+    } else {
+      musicBtn.classList.remove('music-playing');
+      if (iconSoundOn) iconSoundOn.style.display = 'none';
+      if (iconSoundOff) iconSoundOff.style.display = 'block';
+    }
+  }
+
+  if (musicBtn) {
+    musicBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (!ytPlayer || typeof ytPlayer.playVideo !== 'function') return;
+      if (isMusicPlaying) {
+        ytPlayer.pauseVideo();
+        isMusicPlaying = false;
+      } else {
+        ytPlayer.playVideo();
+        isMusicPlaying = true;
+      }
+      updateMusicBtnState();
+    });
+  }
+
   /* ============================================================
      1. INTRO SLIDING DOORS
      ============================================================ */
@@ -13,6 +83,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Add opening class to slide doors and fade seal
     doors.classList.add('opening');
+    
+    // Mühür tıklandığında müzik çalmaya başlar (Kullanıcı etkileşimi şartı sağlanmış olur)
+    startMusic();
     
     // Initialize scroll observer when content is revealed
     setTimeout(initScrollReveal, 1000);
@@ -113,8 +186,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ============================================================
-     4. RSVP FORM SUBMIT
+     4. RSVP FORM SUBMIT (Google Sheets Entegrasyonu)
      ============================================================ */
+  // NOT: Google Sheet'e kaydetmek için aşağıya Apps Script Web App URL'nizi yapıştırın:
+  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyA8JPfFEdnTDc88uG9N-9eIalo52gsdKCljkZ0sUDtV3LMxvCHPZzUn4H3QgVdyh0j5w/exec"; 
+
   const rsvpForm = document.getElementById('rsvp-form');
   if (rsvpForm) {
     rsvpForm.addEventListener('submit', (e) => {
@@ -123,12 +199,34 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.innerText = "GÖNDERİLİYOR...";
       btn.style.opacity = "0.7";
       
+      const name = document.getElementById('rsvp-name') ? document.getElementById('rsvp-name').value.trim() : "";
+      const guests = document.getElementById('rsvp-guests') ? document.getElementById('rsvp-guests').value : "2 Kişi";
+      const attendanceEl = rsvpForm.querySelector('input[name="attendance"]:checked');
+      const attendance = attendanceEl ? (attendanceEl.value === 'yes' ? 'Katılacağım' : 'Katılamayacağım') : '';
+
+      const payload = {
+        name: name,
+        guests: guests,
+        attendance: attendance,
+        timestamp: new Date().toLocaleString('tr-TR')
+      };
+
+      if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL.startsWith("http")) {
+        fetch(GOOGLE_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(payload)
+        }).catch(err => console.error('Sheet logging error:', err));
+      } else {
+        console.log("RSVP Kaydı (Google Script URL girilmedi):", payload);
+      }
+      
       setTimeout(() => {
         btn.innerText = "TEŞEKKÜRLER";
         btn.style.background = "var(--color-gold-dark)";
         btn.style.opacity = "1";
         
-        // Reset form after a delay
         setTimeout(() => {
           rsvpForm.reset();
           btn.innerText = "GÖNDER";

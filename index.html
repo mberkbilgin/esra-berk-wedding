@@ -20,6 +20,23 @@
     <!-- Fixed Embossed Background -->
     <div class="bg-embossed"></div>
     
+    <!-- Floating Music Button (Top Right) -->
+    <button id="music-btn" class="music-btn" title="Müziği Aç / Kapat" aria-label="Müzik Kontrolü" style="display: none;">
+      <svg id="icon-sound-on" class="music-icon" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold)" stroke-width="1.5">
+        <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+      </svg>
+      <svg id="icon-sound-off" class="music-icon" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold)" stroke-width="1.5" style="display: none;">
+        <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+        <line x1="23" y1="9" x2="17" y2="15"/>
+        <line x1="17" y1="9" x2="23" y2="15"/>
+      </svg>
+    </button>
+
+    <!-- Hidden YouTube Player Container -->
+    <div id="yt-player-container" style="position: absolute; width: 1px; height: 1px; top: -100px; left: -100px; opacity: 0.01; pointer-events: none; z-index: -1;"></div>
+    
     <!-- Intro Doors (Sliding Seal) -->
     <div id="intro-doors">
       <div class="door door-left"></div>
@@ -171,23 +188,20 @@
           <p class="text-title" style="font-size: 0.7rem; text-transform: none; font-style: italic; letter-spacing: 0.05em;">Birlikte biriktirdiğimiz en özel duraklar</p>
           
           <div class="memory-box">
-            <!-- Lock Icon -->
+            <!-- Camera / Album Icon -->
             <svg class="memory-icon" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold)" stroke-width="1">
-              <rect x="5" y="11" width="14" height="10" rx="2"/>
-              <path d="M8 11V7a4 4 0 0 1 8 0v4"/>
-              <circle cx="12" cy="16" r="1" fill="var(--color-gold)"/>
-              <path d="M12 0 L24 12 L12 24 L0 12 Z" stroke-width="0.5" stroke-dasharray="2,2"/>
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+              <circle cx="12" cy="13" r="4"/>
             </svg>
             
-            <p class="memory-text">
-              <span style="font-style: italic;">Fotoğraf ve video yükleme etkinlik<br>günü aktif olacak.</span><br><br>
-              Davetlileriniz etkinlik başladığında<br>bu alandan fotoğraf ekleyebilecek.
+            <p class="memory-text" style="margin-bottom: 1.5rem;">
+              <span style="font-style: italic;">Düğünümüzde çektiğiniz fotoğraf ve videoları<br>bizimle paylaşmanızdan mutluluk duyarız.</span><br><br>
+              Aşağıdaki bağlantıya tıklayarak ortak albümümüze<br>ekleme yapabilir veya anıları görüntüleyebilirsiniz.
             </p>
             
-            <div class="diamond-sep" style="width: 4px; height: 4px; margin: 1.5rem auto;"></div>
-            
-            <p class="memory-text" id="memory-cd-text" style="margin-bottom: 0.5rem;">-- gün -- saat -- dakika kaldı</p>
-            <div class="memory-date">12 EYLÜL 2026<br>GÜNÜ AÇILIR</div>
+            <a href="https://drive.google.com/drive/folders/1IG8sdgfhT043CuLepX4NFGULfph355yy?usp=sharing" target="_blank" rel="noopener" class="btn-outline" style="margin-top: 0.5rem; text-decoration: none;">
+              ALBÜMÜ AÇ & FOTOĞRAF YÜKLE
+            </a>
           </div>
         </div>
       </section>
@@ -202,7 +216,15 @@
             </p>
             
             <form id="rsvp-form">
-              <input type="text" class="form-input" placeholder="İsminizi yazın..." required>
+              <input type="text" id="rsvp-name" class="form-input" placeholder="İsminizi yazın..." required>
+              
+              <select id="rsvp-guests" class="form-input">
+                <option value="1 Kişi">1 Kişi</option>
+                <option value="2 Kişi" selected>2 Kişi</option>
+                <option value="3 Kişi">3 Kişi</option>
+                <option value="4 Kişi">4 Kişi</option>
+                <option value="5+ Kişi">5+ Kişi</option>
+              </select>
               
               <div class="radio-group">
                 <label class="radio-label">
@@ -247,6 +269,7 @@
     </main>
   </div>
 
+  <script src="https://www.youtube.com/iframe_api"></script>
   <script src="script.js"></script>
 </body>
 </html>
