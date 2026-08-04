@@ -588,6 +588,7 @@ input[type="radio"]:checked + .radio-custom {
   z-index: 100;
   animation: bounce 2s infinite ease-in-out;
   border: 1px solid rgba(0,0,0,0.05);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 @keyframes bounce {

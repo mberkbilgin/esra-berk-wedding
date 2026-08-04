@@ -174,15 +174,20 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   }
 
-  // Hide scroll hint when user starts scrolling
+  // Hide scroll hint smoothly when user starts scrolling
   const scrollHint = document.getElementById('scroll-hint');
   if (scrollHint) {
     scrollContainer.addEventListener('scroll', () => {
-      if (scrollContainer.scrollTop > 50) {
-        scrollHint.style.opacity = '0';
+      const scrollY = scrollContainer.scrollTop;
+      const newOpacity = Math.max(0, 1 - scrollY / 100);
+      scrollHint.style.opacity = newOpacity;
+      scrollHint.style.transform = `translateX(-50%) translateY(${scrollY * 0.2}px)`;
+      if (newOpacity === 0) {
         scrollHint.style.pointerEvents = 'none';
+      } else {
+        scrollHint.style.pointerEvents = 'auto';
       }
-    }, { passive: true, once: true });
+    }, { passive: true });
   }
 
   /* ============================================================
