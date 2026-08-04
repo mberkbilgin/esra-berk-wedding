@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="color-scheme" content="light only">
+  <title>Esra & Berk — Düğün Davetiyesi</title>
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="app-container">
+    
+    <!-- Fixed Embossed Background -->
+    <div class="bg-embossed"></div>
+    
+    <!-- Intro Doors (Sliding Seal) -->
+    <div id="intro-doors">
+      <div class="door door-left"></div>
+      <div class="intro-seal" id="seal-btn" title="Açmak için dokun"></div>
+      <div class="door door-right"></div>
+      <div class="intro-action-btn">AÇMAK İÇİN DOKUN</div>
+    </div>
+    
+    <!-- Main Scrollable Content (Inside the Arch) -->
+    <main class="scroll-container" id="main-scroll">
+      
+      <!-- Section 1: Names (Screenshot 2) -->
+      <section class="section" style="min-height: 90vh;">
+        <div class="cover-names reveal">
+          <h1 class="text-names">Esra</h1>
+          <div class="ampersand text-names">&</div>
+          <h1 class="text-names" style="margin-left: 2rem;">Berk</h1>
+        </div>
+        
+        <div class="scroll-indicator" id="scroll-hint">Aşağı Kaydır &darr;</div>
+      </section>
+      
+      <!-- Section 2: Family Invitation (Screenshot 3) -->
+      <section class="section">
+        <div class="reveal" style="text-align: center; width: 100%;">
+          <div class="text-title" style="margin-bottom: 0;">ESRA</div>
+          <div style="font-family: var(--font-script); font-size: 1.5rem; margin: -10px 0;">ve</div>
+          <div class="text-title">BERK</div>
+          
+          <div class="diamond-sep"></div>
+          
+          <p class="text-title" style="letter-spacing: 0.15em; line-height: 2;">
+            AİLELERİMİZLE BİRLİKTE<br>
+            BU GÜZEL GÜNDE SİZLERİ DE<br>
+            ARAMIZDA GÖRMEK İSTERİZ.
+          </p>
+          
+          <div class="diamond-sep"></div>
+          
+          <div class="family-names">
+            <div class="family-col">
+              <span>KOCABAY</span>
+              <span>AİLESİ</span>
+            </div>
+            <div class="family-line"></div>
+            <div class="family-col">
+              <span>BİLGİN</span>
+              <span>AİLESİ</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Section 3: Date & Time (Screenshot 4) -->
+      <section class="section">
+        <div class="reveal" style="text-align: center;">
+          <h2 class="text-title">TARİH & SAAT</h2>
+          
+          <div class="diamond-sep" style="margin: 2rem auto;"></div>
+          
+          <div class="date-wreath">
+            <!-- Minimal branch icon -->
+            <svg class="date-branch" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold)" stroke-width="1"><path d="M12 22V2M12 12C8 12 5 9 5 5M12 16C16 16 19 13 19 9"/></svg>
+            
+            <div class="date-day">12</div>
+            <div class="date-month">EYLÜL</div>
+            <div class="date-year">2026</div>
+            <div class="diamond-sep" style="width: 4px; height: 4px; margin: 1rem auto;"></div>
+            <div class="date-dayname">CUMARTESİ</div>
+          </div>
+          
+          <div style="font-size: 1.2rem; letter-spacing: 0.1em; margin-top: 2rem;">19:00</div>
+        </div>
+      </section>
+      
+      <!-- Section 4: Map (Screenshot 5) -->
+      <section class="section">
+        <div class="reveal" style="text-align: center;">
+          <h2 class="text-title">YOL TARİFİ</h2>
+          
+          <div class="diamond-sep"></div>
+          
+          <!-- Abstract window/arch illustration with pin -->
+          <svg class="map-illustration" viewBox="0 0 100 120" fill="none" stroke="var(--color-gold)" stroke-width="0.5">
+            <path d="M20,60 L20,20 C20,10 80,10 80,20 L80,60" />
+            <path d="M10,60 L90,60" />
+            <path d="M20,60 L20,100 L80,100 L80,60" stroke-dasharray="2,2"/>
+            <circle cx="50" cy="50" r="15" fill="rgba(173, 149, 107, 0.1)"/>
+            <path d="M50,40 C46,40 43,43 43,47 C43,52 50,60 50,60 C50,60 57,52 57,47 C57,43 54,40 50,40 Z" fill="var(--color-gold)"/>
+            <circle cx="50" cy="46" r="2" fill="#fff"/>
+            <path d="M50,10 L50,110 M10,50 L90,50" opacity="0.3"/>
+            <text x="56" y="55" font-family="var(--font-serif)" font-size="6" fill="var(--color-text-main)" stroke="none" font-style="italic">Pylai</text>
+            <text x="56" y="62" font-family="var(--font-serif)" font-size="6" fill="var(--color-text-main)" stroke="none" font-style="italic">Concept</text>
+          </svg>
+          
+          <h3 style="font-style: italic; font-size: 1.2rem; margin-bottom: 1rem; font-weight: 400;">Pylai Concept</h3>
+          <p class="address-text">
+            Sahil Mahallesi Barış Sokak, Yaşam<br>
+            Sitesi, 77600 Çiftlikköy/Yalova
+          </p>
+          
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Pylai+Concept+%C3%87iftlikk%C3%B6y+Yalova" target="_blank" rel="noopener" class="btn-outline">
+            HARİTADA AÇ
+          </a>
+        </div>
+      </section>
+
+      <!-- Section 5: Countdown (Screenshot 6) -->
+      <section class="section">
+        <div class="reveal" style="text-align: center;">
+          <h2 class="text-title">BULUŞMAYA KALAN</h2>
+          <div class="diamond-sep"></div>
+          
+          <div class="cd-big">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--color-gold)"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+            <div class="cd-big-num" id="cd-days">--</div>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--color-gold)"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+            <div class="cd-big-text">GÜN</div>
+          </div>
+          
+          <div class="cd-small-row">
+            <div class="cd-small-col">
+              <span id="cd-hours">--</span>
+              <span class="cd-small-label">SAAT</span>
+            </div>
+            <span style="opacity: 0.5;">:</span>
+            <div class="cd-small-col">
+              <span id="cd-minutes">--</span>
+              <span class="cd-small-label">DAKİKA</span>
+            </div>
+            <span style="opacity: 0.5;">:</span>
+            <div class="cd-small-col">
+              <span id="cd-seconds">--</span>
+              <span class="cd-small-label">SANİYE</span>
+            </div>
+          </div>
+          
+          <p class="text-romantic" style="max-width: 250px; margin: 0 auto;">
+            İki ruh, bir deniz kadar derin bir aşkla birleşiyor.
+          </p>
+        </div>
+      </section>
+      
+      <!-- Section 6: Memory Wall (Screenshot 7) -->
+      <section class="section">
+        <div class="reveal" style="text-align: center; width: 100%;">
+          <h2 class="text-romantic" style="font-size: 1.5rem; margin-bottom: 0.5rem;">En güzel anlarımız</h2>
+          <div class="diamond-sep" style="width: 4px; height: 4px; margin: 1rem auto;"></div>
+          <p class="text-title" style="font-size: 0.7rem; text-transform: none; font-style: italic; letter-spacing: 0.05em;">Birlikte biriktirdiğimiz en özel duraklar</p>
+          
+          <div class="memory-box">
+            <!-- Lock Icon -->
+            <svg class="memory-icon" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold)" stroke-width="1">
+              <rect x="5" y="11" width="14" height="10" rx="2"/>
+              <path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+              <circle cx="12" cy="16" r="1" fill="var(--color-gold)"/>
+              <path d="M12 0 L24 12 L12 24 L0 12 Z" stroke-width="0.5" stroke-dasharray="2,2"/>
+            </svg>
+            
+            <p class="memory-text">
+              <span style="font-style: italic;">Fotoğraf ve video yükleme etkinlik<br>günü aktif olacak.</span><br><br>
+              Davetlileriniz etkinlik başladığında<br>bu alandan fotoğraf ekleyebilecek.
+            </p>
+            
+            <div class="diamond-sep" style="width: 4px; height: 4px; margin: 1.5rem auto;"></div>
+            
+            <p class="memory-text" id="memory-cd-text" style="margin-bottom: 0.5rem;">-- gün -- saat -- dakika kaldı</p>
+            <div class="memory-date">12 EYLÜL 2026<br>GÜNÜ AÇILIR</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 7: RSVP (Screenshot 8) -->
+      <section class="section">
+        <div class="reveal" style="width: 100%;">
+          <div class="rsvp-box">
+            <h2 class="text-romantic" style="font-size: 1.5rem; margin-bottom: 1rem;">Katılımınız</h2>
+            <p class="text-romantic" style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 2rem;">
+              Lütfen davetimize katılım<br>durumunuzu bizimle paylaşın.
+            </p>
+            
+            <form id="rsvp-form">
+              <input type="text" class="form-input" placeholder="İsminizi yazın..." required>
+              
+              <div class="radio-group">
+                <label class="radio-label">
+                  <input type="radio" name="attendance" value="yes" required>
+                  <div class="radio-custom"></div>
+                  Katılacağım
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="attendance" value="no" required>
+                  <div class="radio-custom"></div>
+                  Katılamayacağım
+                </label>
+              </div>
+              
+              <button type="submit" class="btn-glass">GÖNDER</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 8: Footer (Screenshot 9) -->
+      <section class="section" style="min-height: 50vh;">
+        <div class="reveal" style="text-align: center;">
+          <div class="text-title" style="margin-bottom: 0;">ESRA</div>
+          <div style="font-family: var(--font-script); font-size: 1rem; margin: -5px 0;">ve</div>
+          <div class="text-title">BERK</div>
+          
+          <div class="diamond-sep"></div>
+          
+          <p class="text-romantic">
+            Orada olmanız, bu günü tamamlayacak.
+          </p>
+          
+          <div class="diamond-sep"></div>
+          
+          <div class="text-title" style="letter-spacing: 0.4em;">
+            12 EYLÜL 2026
+          </div>
+        </div>
+      </section>
+      
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
