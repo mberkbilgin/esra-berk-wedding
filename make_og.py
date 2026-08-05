@@ -37,12 +37,15 @@ def create_og_image():
     gold_dark = (140, 115, 80)
     
     # Fonts
-    font_names = ImageFont.truetype("GreatVibes.ttf", 220)
-    font_date = ImageFont.truetype("Cinzel.ttf", 55)
+    font_names = ImageFont.truetype("GreatVibes.ttf", 170)
+    font_date = ImageFont.truetype("Cinzel.ttf", 45)
+    font_small = ImageFont.truetype("Cinzel.ttf", 35)
     
     # Texts
     text_names = "Esra & Berk"
     text_date = "12 EYLÜL 2026"
+    text_time = "SAAT: 19:00"
+    text_venue = "PYLAI CONCEPT"
     
     def draw_centered_text(text, font, y_pos, color, spacing=0):
         bbox = draw.textbbox((0, 0), text, font=font)
@@ -51,9 +54,11 @@ def create_og_image():
         draw.text((x_pos, y_pos), text, font=font, fill=color)
 
     print("Drawing text...")
-    # Place text roughly in the center
-    draw_centered_text(text_names, font_names, 420, gold_dark)
-    draw_centered_text(text_date, font_date, 700, gold_dark)
+    # Place text perfectly inside the arch
+    draw_centered_text(text_names, font_names, 350, gold_dark)
+    draw_centered_text(text_date, font_date, 570, gold_dark)
+    draw_centered_text(text_time, font_small, 640, gold_dark)
+    draw_centered_text(text_venue, font_small, 690, gold_dark)
     
     print("Saving optimized image...")
     # Save optimized for WhatsApp (< 300KB)
