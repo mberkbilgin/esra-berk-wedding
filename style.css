@@ -242,6 +242,7 @@ body {
   color: var(--color-gold-dark);
   font-weight: 400;
   text-align: center;
+  text-shadow: 0 0 15px rgba(246, 244, 238, 1), 0 0 30px rgba(246, 244, 238, 0.8);
 }
 
 .text-title {
@@ -289,11 +290,30 @@ body {
   flex-direction: column;
   align-items: center;
   margin-top: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.bg-flowers-mask {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background-image: url('images/gallery_flowers.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  filter: grayscale(100%) sepia(70%) opacity(0.25);
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 15%, rgba(0,0,0,0) 70%);
+  mask-image: radial-gradient(circle, rgba(0,0,0,1) 15%, rgba(0,0,0,0) 70%);
 }
 .cover-names .ampersand {
   font-size: 1.5rem;
   margin: -10px 0;
-  opacity: 0.8;
+  opacity: 0.95;
 }
 
 /* Families Section */
