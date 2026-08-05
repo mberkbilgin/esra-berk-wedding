@@ -37,7 +37,7 @@ def create_og_image():
     gold_dark = (140, 115, 80)
     
     # Fonts
-    font_names = ImageFont.truetype("GreatVibes.ttf", 170)
+    font_names = ImageFont.truetype("GreatVibes.ttf", 130)
     font_date = ImageFont.truetype("Cinzel.ttf", 45)
     font_small = ImageFont.truetype("Cinzel.ttf", 35)
     
@@ -55,7 +55,7 @@ def create_og_image():
 
     print("Drawing text...")
     # Place text perfectly inside the arch
-    draw_centered_text(text_names, font_names, 350, gold_dark)
+    draw_centered_text(text_names, font_names, 370, gold_dark)
     draw_centered_text(text_date, font_date, 570, gold_dark)
     draw_centered_text(text_time, font_small, 640, gold_dark)
     draw_centered_text(text_venue, font_small, 690, gold_dark)
